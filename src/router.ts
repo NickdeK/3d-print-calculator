@@ -25,6 +25,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/views/AboutPage.vue'),
   },
   {
+    path: '/calculator',
+    name: 'Calculator',
+    component: () => import('@/views/Calculator.vue'),
+  },
+  {
     path: '*',
     name: 'Error',
     component: () => import('@/views/ErrorPage.vue'),
