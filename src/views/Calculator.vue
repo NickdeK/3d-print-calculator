@@ -94,6 +94,30 @@
             />
           </v-col>
         </v-row>
+        <v-row>
+          <v-col cols="6">
+            <v-text-field
+              v-model.number="hardwareCosts"
+              label="Printer Hardware Total Costs"
+              prefix="€"
+              placeholder="200"
+              persistent-placeholder
+              hide-details="auto"
+              type="number"
+            />
+          </v-col>
+          <v-col cols="6">
+            <v-text-field
+              v-model.number="hardwareLiftime"
+              label="Hardware Total Lifetime"
+              suffix="h"
+              placeholder="1500"
+              persistent-placeholder
+              hide-details="auto"
+              type="number"
+            />
+          </v-col>
+        </v-row>
       </div>
 
       <div class="mb-4">
@@ -165,6 +189,8 @@ export default defineComponent({
       printTime: undefined as number | undefined,
       powerUsagePrinter: undefined as number | undefined,
       powerCosts: undefined as number | undefined,
+      hardwareCosts: undefined as number | undefined,
+      hardwareLiftime: undefined as number | undefined,
       hourlyRate: undefined as number | undefined,
       startupTime: undefined as number | undefined,
       cleanupTime: undefined as number | undefined,
@@ -180,9 +206,16 @@ export default defineComponent({
       return undefined;
     },
     printerCosts: function () {
-      if (this.printTime && this.powerUsagePrinter && this.powerCosts) {
+      if (
+        this.printTime &&
+        this.powerUsagePrinter &&
+        this.powerCosts &&
+        this.hardwareCosts &&
+        this.hardwareLiftime
+      ) {
         return (
-          (this.powerUsagePrinter / 1000) * this.printTime * this.powerCosts
+          (this.powerUsagePrinter / 1000) * this.printTime * this.powerCosts +
+          (this.hardwareCosts / this.hardwareLiftime) * this.printTime
         );
       }
 
