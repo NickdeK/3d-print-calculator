@@ -16,16 +16,6 @@ import store from '@/store';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'Home',
-    component: () => import('@/views/HomePage.vue'),
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import('@/views/AboutPage.vue'),
-  },
-  {
-    path: '/calculator',
     name: 'Calculator',
     component: () => import('@/views/Calculator.vue'),
   },
