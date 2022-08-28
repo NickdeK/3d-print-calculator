@@ -19,13 +19,9 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
     // Resolver
     resolve: {
       // https://vitejs.dev/config/shared-options.html#resolve-alias
-      alias: [
-        {
-          // vue @ shortcut fix
-          find: '@/',
-          replacement: `${path.resolve(__dirname, './src')}/`,
-        },
-      ],
+      alias: {
+        '@': `${path.resolve(__dirname, 'src')}`,
+      },
     },
     // https://vitejs.dev/config/server-options.html
     server: {
