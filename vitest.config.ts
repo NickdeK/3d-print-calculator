@@ -13,13 +13,9 @@ export default defineConfig({
   // Resolver
   resolve: {
     // https://vitejs.dev/config/shared-options.html#resolve-alias
-    alias: [
-      {
-        // vue @ shortcut fix
-        find: '@/',
-        replacement: `${path.resolve(__dirname, './src')}/`,
-      },
-    ],
+    alias: {
+      '@': `${path.resolve(__dirname, 'src')}`,
+    },
   },
   // plugins
   plugins: [
